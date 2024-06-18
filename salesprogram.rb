@@ -14,20 +14,20 @@ class TaxCalculator
         tax_rate+=0.05 if is_imported?(name)
 
         tax=(price*tax_rate*20).ceil/20.0
-        return tax
+        tax
     end
     def is_imported?(name)
-        return name.include?('imported')
+        name.include?('imported')
     end
     def is_exempted?(name)
-        return name.include?('book') || name.include?('chocolate') || name.include?('chocolates') || name.include?('pills')
+        name.include?('book') || name.include?('chocolate') || name.include?('chocolates') || name.include?('pills')
     end
 end
 
 class Order
     include Printer
     attr_accessor :item, :total_tax,:total
-    
+
     def initialize
         @item=[]
         @total_tax=0
